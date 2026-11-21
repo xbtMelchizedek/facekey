@@ -28,7 +28,7 @@ async function loadKey() {
 let lastNonce = 0n;
 async function primeNonce(did) {
   try {
-    const d = c.parseRoomJson(await (await fetch(`${c.API}/r/${c.ROOM}?format=json&limit=200`)).text());
+    const d = c.parseRoomJson(await (await fetch(`${c.API}/r/${c.ROOM}?format=json&limit=200&n=${Date.now()}`)).text()); // n= skips the 5 s edge cache
     for (const m of d.messages || []) if (m.from === did && BigInt(m.nonce) > lastNonce) lastNonce = BigInt(m.nonce);
   } catch {}
 }
@@ -83,7 +83,7 @@ if (cmd === "keygen") {
   await send(key, cmd, { to: flags.to });
 } else if (cmd === "show") {
   const did = pos[0]; if (!c.isDid(did)) die("usage: show <did:key>");
-  const d = c.parseRoomJson(await (await fetch(`${c.API}/r/${c.ROOM}?format=json&limit=200`)).text());
+  const d = c.parseRoomJson(await (await fetch(`${c.API}/r/${c.ROOM}?format=json&limit=200&n=${Date.now()}`)).text()); // n= skips the 5 s edge cache
   const good = []; for (const m of d.messages) if (await c.verifyRecord(c.ROOM, m)) good.push(m);
   const st = await c.buildState(good);
   const p = st.profile(did);
