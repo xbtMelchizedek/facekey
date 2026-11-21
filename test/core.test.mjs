@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import * as c from "../site/lib/core.js";
+import * as c from "../lib/core.js";
 
 const fixture = c.parseRoomJson(fs.readFileSync(new URL("./fixtures/builders.json", import.meta.url), "utf8"));
 

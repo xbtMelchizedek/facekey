@@ -1,7 +1,9 @@
 node_modules/
-site/data/
+public/data/
+dist/
 *.key
 *.seed
 .secrets/
 .env*
 facekey-backup*.json
+*.tsbuildinfo

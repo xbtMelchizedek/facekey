@@ -7,7 +7,7 @@
 //   node tools/facekey.mjs show did:key:z6Mk...            (read-only)
 //   add --dry-run to print the signed request instead of sending it
 import fs from "node:fs";
-import * as c from "../site/lib/core.js";
+import * as c from "../lib/core.js";
 
 const argv = process.argv.slice(2);
 const cmd = argv[0];

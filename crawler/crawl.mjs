@@ -2,16 +2,16 @@
 // facekey crawler: reads public technocore rooms, keeps only records whose did:key signature
 // verifies, and writes a static index for the site. Read-only: it never writes to technocore.
 //
-//   node crawler/crawl.mjs --out site/data [--prev https://.../data] [--rooms 200]
+//   node crawler/crawl.mjs --out public/data [--prev https://.../data] [--rooms 200]
 import fs from "node:fs";
 import path from "node:path";
-import * as c from "../site/lib/core.js";
+import * as c from "../lib/core.js";
 
 const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, arr) => {
   if (a.startsWith("--")) acc.push([a.slice(2), arr[i + 1] && !arr[i + 1].startsWith("--") ? arr[i + 1] : "1"]);
   return acc;
 }, []));
-const OUT = args.out || "site/data";
+const OUT = args.out || "public/data";
 const PREV = args.prev || "";
 const TOP_ROOMS = Math.min(200, +args.rooms || 200);
 const MAX_AGENTS = +args["max-agents"] || 3000;

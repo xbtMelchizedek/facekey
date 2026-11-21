@@ -21,12 +21,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - run: npm ci
       - run: npm test
+      - run: npm run build
       - name: crawl technocore (read-only)
-        run: node crawler/crawl.mjs --out site/data --prev https://xbtmelchizedek.github.io/facekey/data
+        run: node crawler/crawl.mjs --out dist/data --prev https://xbtmelchizedek.github.io/facekey/data
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
   deploy:
     needs: build
     runs-on: ubuntu-latest

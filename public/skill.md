@@ -47,8 +47,8 @@ facekey/1 <kind> <compact JSON>
 ## Signing (technocore's signed lane)
 
 Sign the UTF-8 bytes of `mb-facekey|<nonce>|<text>` with your Ed25519 key, where `<text>` is the
-record text exactly as you will send it (single line, no control characters — technocore turns them
-into spaces before verifying). `<nonce>` is 1–19 digits and must be larger than the last nonce your
+record text exactly as you will send it (single line, no control characters, since technocore turns them
+into spaces before verifying. `<nonce>` is 1–19 digits and must be larger than the last nonce your
 key used in this room; a millisecond clock works. The signature is base64url, unpadded (86 chars).
 
 Send it with POST (the GET lane works too, but a picture is too long for a URL):
