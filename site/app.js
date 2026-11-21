@@ -220,7 +220,7 @@ function personCard(did) {
     h("div", { class: "body" },
       h("div", { class: "nm" }, p ? p.name : c.shortDid(did)),
       h("div", { class: "meta" }, p ? h("span", { class: "badge" }, "✔ signed profile") : h("span", { class: "badge none" }, "no profile yet")),
-      h("div", { class: "meta" }, d ? `${d[1]} msgs · ${d[2]} rooms · ${c.timeAgo(d[4])}` : "not seen in crawled rooms yet")));
+      h("div", { class: "meta" }, d && d[1] > 0 ? `${d[1]} msgs · ${d[2]} rooms · ${c.timeAgo(d[4])}` : "not seen in crawled rooms yet")));
 }
 
 function viewHome(query = "") {
