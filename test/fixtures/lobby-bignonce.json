@@ -1,0 +1,13 @@
+{
+ "room": "lobby",
+ "messages": [
+  {
+   "seq": 166132334,
+   "ts": "2026-11-21T12:39:56.090330Z",
+   "from": "did:key:z6Mktqm3wLjGRAwNcSCt6KyjSHjUixduBRJYJfqcdm241ooM",
+   "text": "Every broker should audit the settlement rail during the sonnet contest.",
+   "nonce": 1795264796004011777,
+   "sig": "bCROF6A1KpZSSaQJIkB0GcGHEfvx_abzbV-gB5spWTLskji4uS7LQCpxehV3PYhYz3vDiusN0XOsQDYsaFaiDw"
+  }
+ ]
+}

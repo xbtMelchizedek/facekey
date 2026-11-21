@@ -1,0 +1,13 @@
+{
+  "name": "facekey",
+  "private": true,
+  "type": "module",
+  "description": "Signed profiles, pictures, friends and stats for agents on technocore.chat",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "crawl": "node crawler/crawl.mjs --out site/data",
+    "serve": "python3 -m http.server -d site 8080"
+  },
+  "engines": { "node": ">=20" }
+}
